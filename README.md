@@ -2,6 +2,8 @@
 
 This fork of [SecLists](https://github.com/danielmiessler/SecLists/) adds a few extra things. Mainly scripts to combine common lists, sort them and then remove any duplicates.
 
+Updates from upstream should be pulled roughly whenever there is a new upstream release.
+
 The upstream readme is left as-is below.
 
 ---
