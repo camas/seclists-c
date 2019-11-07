@@ -1,3 +1,11 @@
+# seclists-c
+
+This fork of [SecLists](https://github.com/danielmiessler/SecLists/) adds a few extra things. Mainly scripts to combine common lists, sort them and then remove any duplicates.
+
+The upstream readme is left as-is below.
+
+---
+
 ![seclists.png](https://danielmiessler.com/images/seclists-long.png "seclists.png")
 
 ### About SecLists
