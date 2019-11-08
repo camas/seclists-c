@@ -15,7 +15,7 @@ echo "List combiner for seclists-c"
 dns_excluded=("/subdomains-top1million-20000.txt")
 declare -A dns=(
         ["wd"]="Discovery/DNS"
-        ["out"]="dns-full2.txt"
+        ["out"]="dns-full.txt"
         ["excluded"]=dns_excluded
     )
 
@@ -44,11 +44,18 @@ for list_name in "${lists[@]}"; do
         done
     done
 
+    # Remove output file from sublists (might have already been created)
+    for i in "${!sublists[@]}"; do
+        if [[ "${sublists[i]}" == */"${list[out]}" ]]; then
+            unset 'sublists[i]'
+        fi
+    done
+
     # Print sublist info
     sublist_count="${#sublists[@]}"
     out_path="${list[wd]}/${list[out]}"
     echo "$index/$total Combining $sublist_count lists from ${list[wd]}/ into $out_path"
-    # 8 parallel threads
+    # explicitly create 8 parallel threads despite it being default for most machines
     # -SG1 to make sure sort doesnt treat piped input as small file
     # LC_ALL=C speeds up sort by sorting by byte value
     cat "${sublists[@]}" | LC_ALL=C sort --parallel=8 -S1G -u -o "$out_path"
