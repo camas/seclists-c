@@ -50,9 +50,38 @@ declare -A lfi=(
     ["out"]="lfi-full.txt"
     ["excluded"]=lfi_excluded
 )
+passwords_excluded=("Default-Credentials/db2-betterdefaultpasslist.txt"
+    "Default-Credentials/ftp-betterdefaultpasslist.txt"
+    "Default-Credentials/mssql-betterdefaultpasslist.txt"
+    "Default-Credentials/mysql-betterdefaultpasslist.txt"
+    "Default-Credentials/Oracle EBS userlist.txt"
+    "Default-Credentials/oracle-betterdefaultpasslist.txt"
+    "Default-Credentials/postgres-betterdefaultpasslist.txt"
+    "Default-Credentials/ssh-betterdefaultpasslist.txt"
+    "Default-Credentials/telnet-betterdefaultpasslist.txt"
+    "Default-Credentials/telnet-phenoelit.txt"
+    "Default-Credentials/tomcat-betterdefaultpasslist.txt"
+    "Default-Credentials/windows-betterdefaultpasslist.txt"
+    "Leaked-Databases/bible-withcount.txt"
+    "Leaked-Databases/elitehacker-withcount.txt"
+    "Leaked-Databases/faithwriters-withcount.txt"
+    "Leaked-Databases/hak5-withcount.txt"
+    "Leaked-Databases/honeynet-withcount.txt"
+    "Leaked-Databases/muslimMatch-withcount.txt"
+    "Leaked-Databases/myspace-withcount.txt"
+    "Leaked-Databases/phpbb-withcount.txt"
+    "Leaked-Databases/porn-unknown-withcount.txt"
+    "Leaked-Databases/rockyou-withcount.txt"
+    "Leaked-Databases/singles.org-withcount.txt"
+    "Malware/mirai-botnet.txt")
+declare -A passwords=(
+    ["wd"]="Passwords"
+    ["out"]="passwords-full.txt"
+    ["excluded"]=passwords_excluded
+)
 
 # Create list of lists
-lists=(dns webcontent xss useragent lfi)
+lists=(dns webcontent xss useragent lfi passwords)
 
 total="${#lists[@]}"
 echo "$total lists to create"
