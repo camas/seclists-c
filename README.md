@@ -2,7 +2,15 @@
 
 This fork of [SecLists](https://github.com/danielmiessler/SecLists/) adds a few extra things. Mainly scripts to combine common lists, sort them and then remove any duplicates.
 
-Updates from upstream should be pulled roughly whenever there is a new upstream release.
+Updates from upstream are pulled when I feel like it.
+
+## Changes
+
+- Added list `Discovery/DNS/bitquark-subdomains-top1000000.txt`
+- Added script `c-extensions/check_blank_ends.sh` which checks every `.txt` file for a trailing `\n`
+- Added script `c-extensions/combine.sh` which creates sorted, unique combinations of related files
+
+## Upstream readme
 
 The upstream readme is left as-is below.
 
@@ -62,8 +70,8 @@ See [CONTRIBUTING.md](CONTRIBUTING.md)
 
 ## Similar Projects
 
-* [PayloadsAllTheThings](https://github.com/swisskyrepo/PayloadsAllTheThings)
-* [FuzzDB](https://github.com/fuzzdb-project/fuzzdb)
+- [PayloadsAllTheThings](https://github.com/swisskyrepo/PayloadsAllTheThings)
+- [FuzzDB](https://github.com/fuzzdb-project/fuzzdb)
 
 ---
 
