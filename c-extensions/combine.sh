@@ -1,5 +1,8 @@
 #!/bin/bash
 
+# Allow recursive globs
+shopt -s globstar
+
 # Check script is being run from the root of the repo
 if [[ $(git rev-parse --show-toplevel) != "$PWD" ]]; then
     echo "Please run from the root of the repo"
@@ -28,10 +31,8 @@ for list_name in "${lists[@]}"; do
     index=$((index+1))
     declare -n list="$list_name"
 
-    # Find text files in given directory
-    sublists=("${list[wd]}"/*.txt)
-
-    echo "${sublists[@]}"
+    # Find text files in given directory recursively
+    sublists=("${list[wd]}"/**/*.txt)
 
     # Remove excluded files from sublists
     declare -n excluded="${list[excluded]}"
@@ -45,5 +46,7 @@ for list_name in "${lists[@]}"; do
 
     # Print sublist info
     sublist_count="${#sublists[@]}"
-    echo "$index/$total Combining $sublist_count lists into ${list[out]}"
+    out_path="${list[wd]}/${list[out]}"
+    echo "$index/$total Combining $sublist_count lists from ${list[wd]}/ into $out_path"
+    cat "${sublists[@]}" | sort --parallel=8 -S1G -u -o "$out_path"
 done
