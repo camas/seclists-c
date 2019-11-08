@@ -79,9 +79,15 @@ declare -A passwords=(
     ["out"]="passwords-full.txt"
     ["excluded"]=passwords_excluded
 )
+names_excluded=()
+declare -A names=(
+    ["wd"]="Usernames"
+    ["out"]="usernames-full.txt"
+    ["excluded"]=names_excluded
+)
 
 # Create list of lists
-lists=(dns webcontent xss useragent lfi passwords)
+lists=(dns webcontent xss useragent lfi passwords names)
 
 total="${#lists[@]}"
 echo "$total lists to create"

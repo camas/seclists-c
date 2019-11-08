@@ -5,6 +5,7 @@ Fuzzing/XSS/xss-full.txt
 Fuzzing/User-Agents/useragent-full.txt
 Fuzzing/LFI/lfi-full.txt
 Passwords/passwords-full.txt
+Usernames/usernames-full.txt
 
 # SecLists ignores (kept for prosterity)
 .DS_Store
