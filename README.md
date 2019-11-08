@@ -9,6 +9,7 @@ Updates from upstream are pulled when I feel like it.
 - Added list `Discovery/DNS/bitquark-subdomains-top1000000.txt`
 - Added script `c-extensions/check_blank_ends.sh` which checks every `.txt` file for a trailing `\n`
 - Added script `c-extensions/combine.sh` which creates sorted, unique combinations of related files
+- Removed leading `/` from URLs in `Discovery/Web-Content`
 
 ## Upstream readme
 
