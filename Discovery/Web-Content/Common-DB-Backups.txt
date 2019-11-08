@@ -1,4 +1,3 @@
-## Contribed by Casey Ellis - @caseyjohnellis ##
 db_backup.sql
 db_backup.rar
 db_backup.sql.tar
