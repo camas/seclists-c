@@ -32,6 +32,12 @@ declare -A webcontent=(
     ["out"]="webcontent-full.txt"
     ["excluded"]=webcontent_excluded
 )
+xss_excluded=("XSS-With-Context-Jhaddix.txt")
+declare -A xss=(
+    ["wd"]="Fuzzing/XSS"
+    ["out"]="xss-full.txt"
+    ["excluded"]=xss_excluded
+)
 
 # Create list of lists
 lists=(dns webcontent)
