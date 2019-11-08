@@ -1,4 +1,3 @@
-
 opt
 etc
 etc/apt

@@ -383,7 +383,6 @@ cgi-bin/fortune
 cgi-bin/redirect
 cgi-bin/uptime
 cgi-bin/wais.pl
-
 webtop/wdk/
 SilverStream
 signon
