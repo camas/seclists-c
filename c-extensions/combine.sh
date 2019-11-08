@@ -32,15 +32,21 @@ declare -A webcontent=(
     ["out"]="webcontent-full.txt"
     ["excluded"]=webcontent_excluded
 )
-xss_excluded=("XSS-With-Context-Jhaddix.txt")
+xss_excluded=("XSS-With-Context-Jhaddix.txt" "XSS-Vectors-Mario.txt")
 declare -A xss=(
     ["wd"]="Fuzzing/XSS"
     ["out"]="xss-full.txt"
     ["excluded"]=xss_excluded
 )
+useragent_excluded=()
+declare -A useragent=(
+    ["wd"]="Fuzzing/User-Agents"
+    ["out"]="useragent-full.txt"
+    ["excluded"]=useragent_excluded
+)
 
 # Create list of lists
-lists=(dns webcontent)
+lists=(dns webcontent xss useragent)
 
 total="${#lists[@]}"
 echo "$total lists to create"
