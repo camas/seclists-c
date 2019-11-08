@@ -44,9 +44,15 @@ declare -A useragent=(
     ["out"]="useragent-full.txt"
     ["excluded"]=useragent_excluded
 )
+lfi_excluded=()
+declare -A lfi=(
+    ["wd"]="Fuzzing/LFI"
+    ["out"]="lfi-full.txt"
+    ["excluded"]=lfi_excluded
+)
 
 # Create list of lists
-lists=(dns webcontent xss useragent)
+lists=(dns webcontent xss useragent lfi)
 
 total="${#lists[@]}"
 echo "$total lists to create"
