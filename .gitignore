@@ -1,3 +1,7 @@
+# Ignore combined files
+Discovery/DNS/dns-full.txt
+
+# SecLists ignores (kept for prosterity)
 .DS_Store
 .*.icloud
 .gitkeep
