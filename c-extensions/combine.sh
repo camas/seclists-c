@@ -11,17 +11,30 @@ fi
 
 echo "List combiner for seclists-c"
 
-# Declare settings
-dns_excluded=("/subdomains-top1million-20000.txt" "/subdomains-top1million-5000.txt" 
+# Declare list settings
+dns_excluded=("subdomains-top1million-20000.txt" "subdomains-top1million-5000.txt" 
     "bitquark-subdomains-top100000.txt" "deepmagic.com-prefixes-top500.txt")
 declare -A dns=(
-        ["wd"]="Discovery/DNS"
-        ["out"]="dns-full.txt"
-        ["excluded"]=dns_excluded
-    )
+    ["wd"]="Discovery/DNS"
+    ["out"]="dns-full.txt"
+    ["excluded"]=dns_excluded
+)
+webcontent_excluded=("Domino-Hunter/Commands-Views.txt" "Domino-Hunter/Commands-NSF.txt"
+    "Domino-Hunter/Commands-Documents.txt" "SVNDigger/ReadMe.txt" 
+    "default-web-root-directory-linux.txt" "default-web-root-directory-windows.txt"
+    "JavaScript-Miners.txt" "local-ports.txt" "Public-Source-Repo-Issues.txt"
+    "raft-large-extensions.txt" "raft-large-extensions-lowercase.txt"
+    "raft-medium-extensions.txt" "raft-medium-extensions-lowercase.txt"
+    "raft-small-extensions.txt" "raft-small-extensions-lowercase.txt"
+    "web-extensions.txt" "web-mutations.txt")
+declare -A webcontent=(
+    ["wd"]="Discovery/Web-Content"
+    ["out"]="webcontent-full.txt"
+    ["excluded"]=webcontent_excluded
+)
 
 # Create list of lists
-lists=(dns)
+lists=(dns webcontent)
 
 total="${#lists[@]}"
 echo "$total lists to create"
@@ -39,7 +52,7 @@ for list_name in "${lists[@]}"; do
     declare -n excluded="${list[excluded]}"
     for i in "${!sublists[@]}"; do
         for excl in "${excluded[@]}"; do
-            if [[ "${sublists[i]}" == *"$excl" ]]; then
+            if [[ "${sublists[i]}" == */"$excl" ]]; then
                 unset 'sublists[i]'
             fi
         done
