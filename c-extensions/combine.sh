@@ -3,12 +3,6 @@
 # Allow recursive globs
 shopt -s globstar
 
-# Check script is being run from the root of the repo
-if [[ $(git rev-parse --show-toplevel) != "$PWD" ]]; then
-    echo "Please run from the root of the repo"
-    exit 1
-fi
-
 echo "List combiner for seclists-c"
 
 # Declare list settings
